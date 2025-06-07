@@ -1,0 +1,28 @@
+includes:
+  - configs/tsc/base.yml
+
+model:
+  name: kglight
+  # train_model: False
+  train_model: False
+  test_model: False
+  epsilon: 0.1
+  epsilon_decay: 0.995
+  epsilon_min: 0.01
+  one_hot: True
+  phase: True
+  # batch_size: 2
+  # observation_feature_list: ['inlane_2_num_vehicle', 'outlane_2_num_vehicle', 'inlane_2_num_waiting_vehicle', 'inlane_2_vehicle_dist', 'outlane_2_vehicle_dist']
+  ob_list: ['inlane_2_num_vehicle', 'outlane_2_num_vehicle', 'inlane_2_num_waiting_vehicle']
+
+world:
+  phase_pairs: [[2, 8], [1, 7], [5, 11], [4, 10], [7, 8], [10, 11], [1, 2], [4, 5]]
+  right_lane: [0, 3, 6, 9]
+  
+trainer:
+  learning_start: 1000
+  # learning_start: 2
+  buffer_size: 5000
+  # episodes: 1
+  load_model: False
+  # load_model: True

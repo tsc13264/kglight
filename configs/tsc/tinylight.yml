@@ -1,0 +1,19 @@
+includes:
+  - configs/tsc/base.yml
+
+model:
+  name: tinylight
+  train_model: True
+  epsilon: 0.1
+  one_hot: False
+  phase: True
+
+  batch_size: 32
+  tau: 0.1
+  gamma: 0.9
+  learning_rate: 0.001
+  ob_list: ['lane_count','lane_waiting_count','lane_waiting_time_count']
+
+trainer:
+  buffer_size: 100000
+  # learning_start: 32

@@ -1,0 +1,72 @@
+task:
+  description: use RL methods to optimize traffic signal control problems
+  task_name: tsc
+
+world:
+# necessary and distinctive parameters for simulators
+  interval: 1.0
+  seed: 0
+  dir: data/
+  saveReplay: True
+  report_log_mode: normal # cbengine
+  report_log_rate: 10
+  no_warning: True
+  gui: False
+  rlTrafficLight: True
+  phase_lane_map_in: [[1, 7], [2, 8], [4, 10], [5, 11], [2, 1], [5, 4], [8, 7], [11, 10]]
+  phase_lane_map_out: [[16, 17, 18, 22, 23, 24], [13, 14, 15, 19, 20, 21],
+                      [13, 14, 15, 19, 20, 21], [16, 17, 18, 22, 23, 24],
+                      [16, 17, 18, 19, 20, 21], [19, 20, 21, 22, 23, 24],
+                      [13, 14, 15, 22, 23, 24], [13, 14, 15, 16, 17, 18]]
+
+trainer:
+  thread: 4
+  ngpu: 0
+  learning_start: 5000
+  buffer_size: 5000
+  steps: 3600
+  test_steps: 3600
+  yellow_length: 5
+  action_interval: 15
+  episodes: 100
+  update_model_rate: 1
+  update_target_rate: 10
+  test_when_train: True
+  test_when_train_start: 20
+  test_when_train_rate: 5
+  load_model: False
+
+model:
+  name: "non-rl"
+  train_model: False
+  test_model: True
+  load_model: False
+  graphic: False
+  vehicle_max: 10
+  learning_rate: 0.001
+  batch_size: 64
+  gamma: 0.95
+  epsilon: 0.5
+  epsilon_decay: 0.99
+  epsilon_min: 0.05
+  grad_clip: 5.0
+  one_hot: False
+  phase: False
+  ob_list: ['lane_count']
+  reward_list: ['lane_waiting_count']
+
+logger:
+  root_dir: "data/output_data/"
+  log_dir: "logger/"
+  replay_dir: "replay/"
+  model_dir: "model/"
+  data_dir: "dataset/"
+  save_model: True
+  save_rate: 5
+  attention: False
+  poi_dir: "data/poi_data/"
+
+
+
+
+
