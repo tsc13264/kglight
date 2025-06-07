@@ -1,0 +1,6 @@
+{
+	"dir": "data/raw_data/cb_jinan/",
+	"roadnetFile": "jinan_roadnet.txt",
+	"flowFile": "jinan_flow.txt",
+	"routeFile": "roadnet_dict-flows.json"
+}

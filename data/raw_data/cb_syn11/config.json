@@ -1,0 +1,6 @@
+{
+	"dir": "data/raw_data/cb_syn11/",
+	"roadnetFile": "syn11.txt",
+	"flowFile": "flow.txt",
+	"routeFile": "roadnet_dict-flows.json"
+}

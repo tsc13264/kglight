@@ -1,0 +1,6 @@
+{
+	"dir": "data/raw_data/cb_hangzhou4x4/",
+	"roadnetFile": "roadnet_hangzhou.txt",
+	"flowFile": "flow_hangzhou.txt",
+	"routeFile": "optional_routes_hangzhou.json"
+}
